@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<div>
+	<textarea name="" id="" cols="30" rows="10"></textarea><br>
+	<input type="button" value="Send Message To tab-sender.html">
+</div>
+
+<body>
+	<script>
+		const bc = new BroadcastChannel('test_channel');
+
+		const button = document.querySelector("input[type=button]");
+		const textarea = document.querySelector("textarea");
+
+		button.addEventListener("click", function () {
+			bc.postMessage(textarea.value);
+			textarea.value = "";
+		});
+	</script>
+</body>
+
+</html>
